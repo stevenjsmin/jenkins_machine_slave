@@ -3,7 +3,7 @@
 - hosts: localhost
   connection: local
   pre_tasks:
-    - include_vars: group_vars/sample.{{env_type}}.yml
+    - include_vars: group_vars/jenkins.{{env_type}}.yml
   roles:
     - ec2-cf
   tags: ec2_create

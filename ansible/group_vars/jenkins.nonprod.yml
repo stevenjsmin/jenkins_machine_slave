@@ -1,0 +1,46 @@
+# EC2 instance variable
+
+stack_name: "Jenkins Appian CICD slave"
+state: "present"
+region: "ap-southeast-2"
+infra_version: "1.0"
+colour: "blue"
+
+# security_groups : for CF stack
+# security_group_ids : for non CF
+ec2:
+  ami_id: "ami-0faafb7f6d4b6129e"
+  instance_type: "t2.medium"
+  key_pair: "steven"
+  iam_role: "S3FullAccess"
+  vpc_subnet_id: "subnet-b37ccfd6"
+  security_groups: "sg-0fa7c3d78dac64c06, sg-38c4da41"
+  security_group_ids:
+    - "sg-0fa7c3d78dac64c06"
+    - "sg-38c4da41"
+  assign_public_ip: "yes"
+  tags:
+    "Name": "Jenkins slave AMI Image"
+    "exempted_date": "15/08/2018",
+    "nbn:applicationSource": "new",
+    "nbn:env:code": "np",
+    "nbn:env:subcode": "dev1",
+    "nbn:focalPoint:applicationId": "2079",
+    "nbn:focalPoint:applicationName": "Payments Jenkins",
+    "nbn:focalPoint:applicationShortName": "Jenkins",
+    "nbn:focalPoint:sdgCode": "208",
+    "nbn:focalPoint:sdgPlatformCode": "paym",
+    "nbn:focalPoint:sdgPlatformName": "Payments",
+    "nbn:focalPoint:systemTeamEmail": "BPM_Appian_CICD@nbnco.com.au",
+    "nbn:focalPoint:systemTeamLead": "Ourania Papadopoulos",
+    "nbn:focalPoint:systemTeamName": "Enterprise",
+    "nbn:operationalMode": "CM2",
+    "nbn:teamCode": "paym",
+    "state:scheduleName": "SydneyBusinessHoursX7",
+    "nbn:ast:ownerName": "Ravi Rapolu",
+    "nbn:ast:ownerEmail": "ravirapolu@nbnco.com.au",
+    "nbn:ast:ownerMobile": "0449984788",
+  volumes:
+    - device_name: /dev/xvda
+      volume_type: standard
+      volume_size: 8

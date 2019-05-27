@@ -22,7 +22,7 @@
     "associate_public_ip_address" : false,
     "ami_users": "{{ user `ami_users` }}",
     "run_tags": {
-      "Name": "Cooking Jenkkins slave AMI Image",
+      "Name": "Cooking Jenkins slave AMI Image",
       "exempted_date": "{{user `exempted_date`}}",
       "nbn:applicationSource": "{{user `nbn:applicationSource`}}",
       "nbn:env:code": "{{user `nbn:env:code`}}",
