@@ -20,26 +20,26 @@ ec2:
     - "sg-38c4da41"
   assign_public_ip: "yes"
   tags:
-    Name: "Jenkins slave AMI Image"
-    exempted_date: "15/08/2018",
-    nbn:applicationSource: "new",
-    nbn:env:code: "np",
-    nbn:env:subcode: "dev1",
-    nbn:focalPoint:applicationId: "2079",
-    nbn:focalPoint:applicationName: "Payments Jenkins",
-    nbn:focalPoint:applicationShortName: "Jenkins",
-    nbn:focalPoint:sdgCode: "208",
-    nbn:focalPoint:sdgPlatformCode: "paym",
-    nbn:focalPoint:sdgPlatformName: "Payments",
-    nbn:focalPoint:systemTeamEmail: "BPM_Appian_CICD@nbnco.com.au",
-    nbn:focalPoint:systemTeamLead: "Ourania Papadopoulos",
-    nbn:focalPoint:systemTeamName: "Enterprise",
-    nbn:operationalMode: "CM2",
-    nbn:teamCode: "paym",
-    state:scheduleName: "SydneyBusinessHoursX7",
-    nbn:ast:ownerName: "Ravi Rapolu",
-    nbn:ast:ownerEmail: "ravirapolu@nbnco.com.au",
-    nbn:ast:ownerMobile: "0449984788"
+    "Name": "Jenkins slave AMI Image"
+    "exempted_date": "15/08/2018",
+    "nbn:applicationSource": "new",
+    "nbn:env:code": "np",
+    "nbn:env:subcode": "dev1",
+    "nbn:focalPoint:applicationId": "2079",
+    "nbn:focalPoint:applicationName": "Payments Jenkins",
+    "nbn:focalPoint:applicationShortName": "Jenkins",
+    "nbn:focalPoint:sdgCode": "208",
+    "nbn:focalPoint:sdgPlatformCode": "paym",
+    "nbn:focalPoint:sdgPlatformName": "Payments",
+    "nbn:focalPoint:systemTeamEmail": "BPM_Appian_CICD@nbnco.com.au",
+    "nbn:focalPoint:systemTeamLead": "Ourania Papadopoulos",
+    "nbn:focalPoint:systemTeamName": "Enterprise",
+    "nbn:operationalMode": "CM2",
+    "nbn:teamCode": "paym",
+    "state:scheduleName": "SydneyBusinessHoursX7",
+    "nbn:ast:ownerName": "Ravi Rapolu",
+    "nbn:ast:ownerEmail": "ravirapolu@nbnco.com.au",
+    "nbn:ast:ownerMobile": "0449984788"
   volumes:
     - device_name: /dev/xvda
       volume_type: standard
