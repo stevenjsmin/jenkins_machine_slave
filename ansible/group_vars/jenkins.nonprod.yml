@@ -12,7 +12,7 @@ colour: "blue"
 #     iam_role: "payments-developer-role"
 #     ami_id: "ami-0a65adff63f1802c8"
 ec2:
-  ami_id: "{{ base_ami_id }}"
+  ami_id: "{{ param.ami_id }}"
   instance_type: "t2.medium"
   key_pair: "steven"
   iam_role: "S3FullAccess"
