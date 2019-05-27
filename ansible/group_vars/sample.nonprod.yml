@@ -39,7 +39,7 @@ ec2:
     state:scheduleName: "SydneyBusinessHoursX7",
     nbn:ast:ownerName: "Ravi Rapolu",
     nbn:ast:ownerEmail: "ravirapolu@nbnco.com.au",
-    nbn:ast:ownerMobile: "0449984788",
+    nbn:ast:ownerMobile: "0449984788"
   volumes:
     - device_name: /dev/xvda
       volume_type: standard
