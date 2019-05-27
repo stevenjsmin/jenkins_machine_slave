@@ -15,4 +15,8 @@
     tags:
       "Environment": "{{ env_type }}"
       "exempted_date": "{{ ec2.tags.exempted_date }}"
+      "nbn:applicationSource": "{{ ec2.tags.nbn_applicationSource }}"
+      "nbn:env:code": "{{ ec2.tags.nbn_env_code }}"
+      "nbn:env:subcode": "{{ ec2.tags.nbn_env_subcode }}"
+      "nbn:focalPoint:applicationId": "{{ ec2.tags.nbn_focalPoint_applicationId }}"
   register: stack
