@@ -37,8 +37,8 @@ ec2:
     "nbn_operationalMode": "CM2"
     "nbn_teamCode": "paym"
     "state_scheduleName": "SydneyBusinessHoursX7"
-    "nbn_ast_ownerName": "Ravi Rapolu",
-    "nbn_ast_ownerEmail": "ravirapolu@nbnco.com.au",
+    "nbn_ast_ownerName": "Ravi Rapolu"
+    "nbn_ast_ownerEmail": "ravirapolu@nbnco.com.au"
     "nbn_ast_ownerMobile": "0449984788"
   volumes:
     - device_name: /dev/xvda
