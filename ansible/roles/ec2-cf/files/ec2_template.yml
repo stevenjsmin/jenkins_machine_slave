@@ -23,7 +23,7 @@ Parameters:
   }
 
 Resources:
-  MyEC2Instance:
+  AppianJenkinsEC2Instance:
     Type: "AWS::EC2::Instance"
     Properties:
       ImageId: !Ref AmiId
