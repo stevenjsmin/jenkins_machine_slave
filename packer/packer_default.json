@@ -77,14 +77,6 @@
       "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-java`}} {{user `artifact_root_url`}}/{{user `cicd-tools-java`}}"
     },
     {
-      "type": "shell-local",
-      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-jenkins`}} {{user `artifact_root_url`}}/{{user `cicd-tools-jenkins`}}"
-    },
-    {
-      "type": "shell-local",
-      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-wars`}} {{user `artifact_root_url`}}/{{user `cicd-tools-wars`}}"
-    },
-    {
       "type": "shell",
       "inline": [
         "sleep 30",
