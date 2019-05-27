@@ -30,7 +30,7 @@
   "nbn:ast:ownerEmail": "ravirapolu@nbnco.com.au",
   "nbn:ast:ownerMobile": "0449984788",
 
-  "packer_root_dir": "/root/.jenkins/workspace/jenkins_bake_ami_1/packer",
+  "packer_root_dir": "/root/.jenkins/workspace/jenkins_bake_ami_slave/packer",
   "artifact_root_url": "http://stevenmin.info/cicd-tools",
 
   "cicd-tools-deploymentManager": "cicd-tools-deploymentManager-20190527.tar.gz",
