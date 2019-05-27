@@ -21,8 +21,7 @@ ec2:
   assign_public_ip: "yes"
   tags:
     "Name": "Jenkins slave AMI Image"
-    "exempted_date": "15/08/2018",
-    "nbn:applicationSource": "new"
+    "exempted_date": "15/08/2018"
   volumes:
     - device_name: /dev/xvda
       volume_type: standard
