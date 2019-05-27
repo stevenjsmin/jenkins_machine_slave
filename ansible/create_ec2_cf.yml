@@ -3,5 +3,5 @@
   hosts: "localhost"
   connection: local
   roles:
-    - { role: ec2-cf, "vars_file": "group_vars/jenkins.{{env_type}}.yml" }
+    - { role: ec2-cf, "vars_file": "group_vars/jenkins.nonprod.yml" }
   tags: ec2_create
