@@ -2,8 +2,7 @@
 # Run : ansible-playbook -vvv -i ansible/env/hosts -e env_type=nonprod ansible/create_ec2_cf.yml
 - hosts: localhost
   connection: local
-  pre_tasks:
-    - include_vars: group_vars/jenkins.{{env_type}}.yml
   roles:
     - ec2-cf
+    - { role: ec2, "vars_file": "group_vars/jenkins.{{env_type}}.yml" }
   tags: ec2_create
