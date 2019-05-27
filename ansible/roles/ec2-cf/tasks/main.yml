@@ -28,7 +28,7 @@
       "nbn:focalPoint:systemTeamLead": "{{ ec2.tags.nbn_focalPoint_systemTeamLead }}"
       "nbn:focalPoint:systemTeamName": "{{ ec2.tags.nbn_focalPoint_systemTeamName }}"
       "nbn:operationalMode": "{{ ec2.tags.nbn_operationalMode }}"
-      "nbn:teamCode": "{{ ec2.tags.nbn:teamCode }}"
+      "nbn:teamCode": "{{ ec2.tags.nbn_teamCode }}"
       "state:scheduleName": "{{ ec2.tags.scheduleName }}"
       "nbn:ast:ownerName": "{{ ec2.tags.nbn_ast_ownerName }}"
       "nbn:ast:ownerEmail": "{{ ec2.tags.nbn_ast_ownerEmail }}"
