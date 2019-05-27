@@ -1,8 +1,7 @@
-# Instance creation
-# Run : ansible-playbook -vvv -i ansible/env/hosts -e env_type=nonprod ansible/create_ec2_cf.yml
-- hosts: localhost
+---
+- name: Instance creation
+  hosts: "localhost"
   connection: local
   roles:
-    - ec2-cf
-    - { role: ec2, "vars_file": "group_vars/jenkins.{{env_type}}.yml" }
+    - { role: ec2-cf, "vars_file": "group_vars/jenkins.{{env_type}}.yml" }
   tags: ec2_create
