@@ -13,6 +13,7 @@
       KeyName: "{{ec2.key_pair}}"
       SecurityGroup: "{{ ec2.security_groups }}"
     tags:
+      "Name": "Appian CICD Slave"
       "Environment": "{{ env_type }}"
       "exempted_date": "{{ ec2.tags.exempted_date }}"
       "nbn:applicationSource": "{{ ec2.tags.nbn_applicationSource }}"
