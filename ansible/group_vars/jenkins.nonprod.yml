@@ -1,6 +1,6 @@
 # EC2 instance variable
 
-stack_name: "JenkinsAppianCICDSlave"
+stack_name: "Jenkins Appian CICD Slave"
 state: "present"
 region: "ap-southeast-2"
 infra_version: "1.0"
