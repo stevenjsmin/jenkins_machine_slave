@@ -36,8 +36,6 @@
   "cicd-tools-deploymentManager": "cicd-tools-deploymentManager-20190527.tar.gz",
   "cicd-tools-fitnesse": "cicd-tools-fitnesse-20190527.tar.gz",
   "cicd-tools-java": "cicd-tools-java-20190527.tar.gz",
-  "cicd-tools-jenkins": "cicd-tools-jenkins-20190527.tar.gz",
-  "cicd-tools-wars": "cicd-tools-wars-20190527.tar.gz",
 
   "database_url": "appiancicd-main.abcd.ap-southeast-2.rds.amazonaws.com:3306"
 }
