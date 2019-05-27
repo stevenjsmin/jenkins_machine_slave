@@ -1,0 +1,10 @@
+# Instance creation
+# Run : ansible-playbook -i env/hosts create_ec2.yml
+- hosts: localhost
+  connection: local
+  pre_tasks:
+    - include_vars: group_vars/sample.{{env_type}}.yml
+  roles:
+    - ec2
+  tags: ec2_create
+

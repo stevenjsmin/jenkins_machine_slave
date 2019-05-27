@@ -1,0 +1,118 @@
+{
+  "variables": {
+    "access_key": "{{env `GB_AWS_PACKER_ACCESS_KEY`}}",
+    "secret_key": "{{env `GB_AWS_PACKER_SECRET_KEY`}}",
+    "region": "",
+    "source_ami": "",
+    "instance_type": "",
+    "ssh_username": ""
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `access_key`}}",
+    "secret_key": "{{user `secret_key`}}",
+    "region": "{{user `region`}}",
+    "source_ami": "{{user `source_ami`}}",
+    "instance_type": "{{user `instance_type`}}",
+    "ssh_username": "{{user `ssh_username`}}",
+    "ami_name": "{{user `ami_name`}}-{{isotime \"2006-01-02\"}}-{{timestamp}}",
+    "ssh_timeout": "5m",
+    "vpc_id": "{{ user `vpc_id` }}",
+    "subnet_id": "{{ user `subnet_id` }}",
+    "associate_public_ip_address" : false,
+    "ami_users": "{{ user `ami_users` }}",
+    "run_tags": {
+      "Name": "Cooking Packer AMI Image",
+      "exempted_date": "{{user `exempted_date`}}",
+      "nbn:applicationSource": "{{user `nbn:applicationSource`}}",
+      "nbn:env:code": "{{user `nbn:env:code`}}",
+      "nbn:env:subcode": "{{user `nbn:env:subcode`}}",
+      "nbn:focalPoint:applicationId": "{{user `nbn:focalPoint:applicationId`}}",
+      "nbn:focalPoint:applicationName": "{{user `nbn:focalPoint:applicationName`}}",
+      "nbn:focalPoint:applicationShortName": "{{user `nbn:focalPoint:applicationShortName`}}",
+      "nbn:focalPoint:sdgCode": "{{user `nbn:focalPoint:sdgCode`}}",
+      "nbn:focalPoint:sdgPlatformCode": "{{user `nbn:focalPoint:sdgPlatformCode`}}",
+      "nbn:focalPoint:sdgPlatformName": "{{user `nbn:focalPoint:sdgPlatformName`}}",
+      "nbn:focalPoint:systemTeamEmail": "{{user `nbn:focalPoint:systemTeamEmail`}}",
+      "nbn:focalPoint:systemTeamLead": "{{user `nbn:focalPoint:systemTeamLead`}}",
+      "nbn:focalPoint:systemTeamName": "{{user `nbn:focalPoint:systemTeamName`}}",
+      "nbn:operationalMode": "{{user `nbn:operationalMode`}}",
+      "nbn:teamCode": "{{user `nbn:teamCode`}}",
+      "state:scheduleName": "{{user `state:scheduleName`}}"
+    },
+    "tags": {
+      "Name": "{{ user `ami_name` }}",
+      "Type": "Appian CICD Master",
+      "exempted_date": "{{user `exempted_date`}}",
+      "nbn:applicationSource": "{{user `nbn:applicationSource`}}",
+      "nbn:env:code": "{{user `nbn:env:code`}}",
+      "nbn:env:subcode": "{{user `nbn:env:subcode`}}",
+      "nbn:focalPoint:applicationId": "{{user `nbn:focalPoint:applicationId`}}",
+      "nbn:focalPoint:applicationName": "{{user `nbn:focalPoint:applicationName`}}",
+      "nbn:focalPoint:applicationShortName": "{{user `nbn:focalPoint:applicationShortName`}}",
+      "nbn:focalPoint:sdgCode": "{{user `nbn:focalPoint:sdgCode`}}",
+      "nbn:focalPoint:sdgPlatformCode": "{{user `nbn:focalPoint:sdgPlatformCode`}}",
+      "nbn:focalPoint:sdgPlatformName": "{{user `nbn:focalPoint:sdgPlatformName`}}",
+      "nbn:focalPoint:systemTeamEmail": "{{user `nbn:focalPoint:systemTeamEmail`}}",
+      "nbn:focalPoint:systemTeamLead": "{{user `nbn:focalPoint:systemTeamLead`}}",
+      "nbn:focalPoint:systemTeamName": "{{user `nbn:focalPoint:systemTeamName`}}",
+      "nbn:operationalMode": "{{user `nbn:operationalMode`}}",
+      "nbn:teamCode": "{{user `nbn:teamCode`}}",
+      "nbn:ast:ownerName": "{{user `nbn:ast:ownerName`}}",
+      "nbn:ast:ownerEmail": "{{user `nbn:ast:ownerEmail`}}",
+      "nbn:ast:ownerMobile": "{{user `nbn:ast:ownerMobile`}}"
+    }
+  }],
+  "provisioners" : [
+    {
+      "type": "shell-local",
+      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-deploymentManager`}} {{user `artifact_root_url`}}/{{user `cicd-tools-deploymentManager`}}"
+    },
+    {
+      "type": "shell-local",
+      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-fitnesse`}} {{user `artifact_root_url`}}/{{user `cicd-tools-fitnesse`}}"
+    },
+    {
+      "type": "shell-local",
+      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-java`}} {{user `artifact_root_url`}}/{{user `cicd-tools-java`}}"
+    },
+    {
+      "type": "shell-local",
+      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-jenkins`}} {{user `artifact_root_url`}}/{{user `cicd-tools-jenkins`}}"
+    },
+    {
+      "type": "shell-local",
+      "command": "curl -o {{user `packer_root_dir`}}/cicd-tools/{{user `cicd-tools-wars`}} {{user `artifact_root_url`}}/{{user `cicd-tools-wars`}}"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 30",
+        "sudo yum update -y",
+        "sudo yum install git -y",
+
+        "sudo adduser -m jenkins",
+        "sudo mkdir ~jenkins/.ssh",
+        "sudo cp /home/ec2-user/.ssh/authorized_keys /home/jenkins/.ssh/",
+        "sudo chown -R jenkins:jenkins /home/jenkins/.ssh"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "{{user `packer_root_dir`}}/cicd-tools",
+      "destination": "/home/ec2-user"
+    },
+    {
+      "execute_command": "{{ .Vars }} sudo -S -E bash '{{.Path}}'",
+      "type": "shell",
+      "scripts": [
+        "{{user `packer_root_dir`}}/provisioning.scripts/install-cicd-tools.sh",
+        "{{user `packer_root_dir`}}/provisioning.scripts/setup-evironment.sh"
+      ],
+      "environment_vars": [
+        "DB_RUL={{ user `database_url` }}"
+      ]
+    }
+  ]
+}
+

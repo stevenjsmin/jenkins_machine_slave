@@ -1,0 +1,10 @@
+# Instance creation
+# Run : ansible-playbook -vvv -i ansible/env/hosts -e env_type=nonprod ansible/create_ec2_cf.yml
+- hosts: localhost
+  connection: local
+  pre_tasks:
+    - include_vars: group_vars/sample.{{env_type}}.yml
+  roles:
+    - ec2-cf
+  tags: ec2_create
+

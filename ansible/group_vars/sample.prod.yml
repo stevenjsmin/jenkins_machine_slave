@@ -1,0 +1,29 @@
+# EC2 instance variable
+
+stack_name: "test"
+state: "present"
+region: "ap-southeast-2"
+infra_version: "1.0"
+colour: "blue"
+
+# security_groups : for CF stack
+# security_group_ids : for non CF
+ec2:
+  ami_id: "ami-e8c62d8a"
+  instance_type: "t2.micro"
+  key_pair: "steven"
+  iam_role: "TestAdminRole"
+  vpc_subnet_id: "subnet-b37ccfd6"
+  security_groups: "sg-87b7c3e1, sg-e9acd88f"
+  security_group_ids:
+    - "sg-87b7c3e1"
+    - "sg-e9acd88f"
+  assign_public_ip: "yes"
+  tags:
+    Name: "1"
+    Type: "2"
+    Env: "3"
+  volumes:
+    - device_name: /dev/xvda
+      volume_type: standard
+      volume_size: 8

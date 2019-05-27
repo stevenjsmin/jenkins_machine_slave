@@ -1,0 +1,44 @@
+{
+  "region": "ap-southeast-2",
+  "source_ami": "ami-0c1d7a49639fa36d7",
+  "instance_type": "t2.micro",
+  "ssh_username": "ec2-user",
+
+  "vpc_id": "vpc-e973ac8c",
+  "subnet_id": "subnet-b37ccfd6",
+  "ami_users": "371698615055",
+
+  "ami_name": "Appian CICD AMI",
+
+  "exempted_date": "15/08/2018",
+  "nbn:applicationSource": "new",
+  "nbn:env:code": "np",
+  "nbn:env:subcode": "dev1",
+  "nbn:focalPoint:applicationId": "2079",
+  "nbn:focalPoint:applicationName": "Payments Jenkins",
+  "nbn:focalPoint:applicationShortName": "Jenkins",
+  "nbn:focalPoint:sdgCode": "208",
+  "nbn:focalPoint:sdgPlatformCode": "paym",
+  "nbn:focalPoint:sdgPlatformName": "Payments",
+  "nbn:focalPoint:systemTeamEmail": "BPM_Appian_CICD@nbnco.com.au",
+  "nbn:focalPoint:systemTeamLead": "Ourania Papadopoulos",
+  "nbn:focalPoint:systemTeamName": "Enterprise",
+  "nbn:operationalMode": "CM2",
+  "nbn:teamCode": "paym",
+  "state:scheduleName": "SydneyBusinessHoursX5",
+  "nbn:ast:ownerName": "Ravi Rapolu",
+  "nbn:ast:ownerEmail": "ravirapolu@nbnco.com.au",
+  "nbn:ast:ownerMobile": "0449984788",
+
+  "packer_root_dir": "/root/.jenkins/workspace/jenkins_bake_ami_1/packer",
+  "artifact_root_url": "http://stevenmin.info/cicd-tools",
+
+  "cicd-tools-deploymentManager": "cicd-tools-deploymentManager-20190527.tar.gz",
+  "cicd-tools-fitnesse": "cicd-tools-fitnesse-20190527.tar.gz",
+  "cicd-tools-java": "cicd-tools-java-20190527.tar.gz",
+  "cicd-tools-jenkins": "cicd-tools-jenkins-20190527.tar.gz",
+  "cicd-tools-wars": "cicd-tools-wars-20190527.tar.gz",
+
+  "database_url": "appiancicd-main.abcd.ap-southeast-2.rds.amazonaws.com:3306"
+}
+

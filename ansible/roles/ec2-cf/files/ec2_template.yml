@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Ec2 block device mapping"
+
+Parameters:
+  AmiId:
+    Type: "String"
+  InstanceType:
+    Type: "String"
+  KeyName: {
+      "Description": "Key pair name",
+      "Type": "String",
+      "ConstraintDescription": "Must be list of EC2 security group ids"
+  }
+  SecurityGroup: {
+      "Description": "Security groups that can be used to access the EC2 instances",
+      "Type": "List<AWS::EC2::SecurityGroup::Id>",
+      "ConstraintDescription": "Must be list of EC2 security group ids"
+  }
+  InstanceProfile: {
+      "Description": "Server role",
+      "Type": "String",
+      "ConstraintDescription": "Must be list of AMI role"
+  }
+
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !Ref AmiId
+      KeyName: !Ref KeyName
+      SecurityGroupIds: !Ref SecurityGroup
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
+      BlockDeviceMappings:
+        - DeviceName: "/dev/sdm"
+          Ebs:
+            VolumeType: "io1"
+            Iops: "200"
+            DeleteOnTermination: "false"
+            VolumeSize: "20"
+        - DeviceName: "/dev/sdk"
+          NoDevice: {}

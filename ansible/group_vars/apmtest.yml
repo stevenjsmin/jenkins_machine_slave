@@ -1,0 +1,31 @@
+# EC2 instance variable
+
+stack_name: "test"
+state: "present"
+region: "ap-southeast-2"
+infra_version: "1.0"
+colour: "blue"
+
+# security_groups : for CF stack
+# security_group_ids : for non CF
+# t2.micro : 1 cpu, 1 G Mem
+# t2.small : 1 cpu, 2 G Mem
+# t2.medium : 2 cpu, 4 G Mem
+# t2.xlarge : 4 cpu, 16 G Mem
+ec2:
+  ami_id: "{{ AWS_AMI_ID }}"
+  instance_type: "t2.micro"
+  key_pair: "steven"
+  iam_role: "S3FullAccess"
+  vpc_subnet_id: "subnet-b37ccfd6"
+  security_group_ids:
+    - "sg-38c4da41"
+  assign_public_ip: "yes"
+  tags:
+    Name: "Appian_{{ RUN_EVN_TYPE }}"
+    Type: "Application"
+    Env: "{{ RUN_EVN_TYPE }}"
+  volumes:
+    - device_name: /dev/xvda
+      volume_type: standard
+      volume_size: 8

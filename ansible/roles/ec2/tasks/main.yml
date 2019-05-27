@@ -1,0 +1,42 @@
+---
+
+# This playbook is for
+# - Create EC2 Instance
+# - Register the Instance on ELB
+
+# Create EC2 instance
+- name: Create an EC2 instance
+  ec2:
+    region: "{{ region }}"
+    keypair: "{{ ec2.key_pair }}"
+    image: "{{ ec2.ami_id }}"
+    instance_type: "{{ ec2.instance_type }}"
+    instance_profile_name: "{{ ec2.iam_role | default('') }}"
+    group_id: "{{ ec2.security_group_ids }}"
+    vpc_subnet_id: "{{ ec2.vpc_subnet_id }}"
+    assign_public_ip: "{{ ec2.assign_public_ip | default('no') }}"
+    private_ip: "{{ ec2.private_ip | default('') }}"
+    wait: true
+    instance_tags: |
+          {
+              "Name":"{{ ec2.tags.Name }}",
+              "Type":"{{ ec2.tags.Type }}",
+              "Environment":"{{ ec2.tags.Env }}"
+          }
+  register: ec2Instance
+
+#- debug: var=ec2Instance
+#- debug: var=ec2Instance.instances
+- debug: var=ec2Instance.instances[0].id
+
+- name: Wait for the servers to appear on the network
+  wait_for: host={{ ec2Instance.instances[0].public_dns_name }} port=22 delay=10 timeout=180 state=started
+
+- name: Add the ervers to the load balancer
+  local_action: ec2_elb
+  args:
+    instance_id: "{{ ec2Instance.instances[0].id }}"
+    ec2_elbs: "appian{{ RUN_EVN_TYPE }}"
+    state: present
+    region: "{{ region }}"
+  ignore_errors: yes
