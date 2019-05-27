@@ -8,7 +8,7 @@
   "subnet_id": "subnet-b37ccfd6",
   "ami_users": "371698615055",
 
-  "ami_name": "Appian CICD AMI",
+  "ami_name": "Appian CICD AMI slave",
 
   "exempted_date": "15/08/2018",
   "nbn:applicationSource": "new",
