@@ -11,8 +11,8 @@ colour: "blue"
 ec2:
   ami_id: "ami-0faafb7f6d4b6129e"
   instance_type: "t2.medium"
-  key_pair: "steven"
-  iam_role: "S3FullAccess"
+  key_pair: "appian-cicd-np"
+  iam_role: "payments-developer-role"
   vpc_subnet_id: "subnet-b37ccfd6"
   security_groups: "sg-0fa7c3d78dac64c06, sg-38c4da41"
   security_group_ids:

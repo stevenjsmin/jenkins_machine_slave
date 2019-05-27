@@ -1,6 +1,6 @@
 # EC2 instance variable
 
-stack_name: "test"
+stack_name: "Jenkins Appian CICD Slave"
 state: "present"
 region: "ap-southeast-2"
 infra_version: "1.0"
@@ -9,20 +9,37 @@ colour: "blue"
 # security_groups : for CF stack
 # security_group_ids : for non CF
 ec2:
-  ami_id: "ami-e8c62d8a"
-  instance_type: "t2.micro"
-  key_pair: "steven"
-  iam_role: "TestAdminRole"
+  ami_id: "ami-0faafb7f6d4b6129e"
+  instance_type: "t2.medium"
+  key_pair: "appian-cicd-np"
+  iam_role: "payments-developer-role"
   vpc_subnet_id: "subnet-b37ccfd6"
-  security_groups: "sg-87b7c3e1, sg-e9acd88f"
+  security_groups: "sg-0fa7c3d78dac64c06, sg-38c4da41"
   security_group_ids:
-    - "sg-87b7c3e1"
-    - "sg-e9acd88f"
+    - "sg-0fa7c3d78dac64c06"
+    - "sg-38c4da41"
   assign_public_ip: "yes"
   tags:
-    Name: "1"
-    Type: "2"
-    Env: "3"
+    "Name": "Jenkins slave AMI Image"
+    "exempted_date": "15/08/2018"
+    "nbn_applicationSource": "new"
+    "nbn_env_code": "np"
+    "nbn_env_subcode": "dev1"
+    "nbn_focalPoint_applicationId": "2079"
+    "nbn_focalPoint_applicationName": "Payments Jenkins"
+    "nbn_focalPoint_applicationShortName": "Jenkins"
+    "nbn_focalPoint_sdgCode": "208"
+    "nbn_focalPoint_sdgPlatformCode": "paym"
+    "nbn_focalPoint_sdgPlatformName": "Payments"
+    "nbn_focalPoint_systemTeamEmail": "BPM_Appian_CICD@nbnco.com.au"
+    "nbn_focalPoint_systemTeamLead": "Ourania Papadopoulos"
+    "nbn_focalPoint_systemTeamName": "Enterprise"
+    "nbn_operationalMode": "CM2"
+    "nbn_teamCode": "paym"
+    "state_scheduleName": "SydneyBusinessHoursX7"
+    "nbn_ast_ownerName": "Ravi Rapolu"
+    "nbn_ast_ownerEmail": "ravirapolu@nbnco.com.au"
+    "nbn_ast_ownerMobile": "0449984788"
   volumes:
     - device_name: /dev/xvda
       volume_type: standard
