@@ -7,4 +7,3 @@
   roles:
     - ec2-cf
   tags: ec2_create
-
