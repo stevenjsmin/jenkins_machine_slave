@@ -11,7 +11,7 @@ colour: "blue"
 #     key_pair: "appian-cicd-np"
 #     iam_role: "payments-developer-role"
 ec2:
-  ami_id: "ami-0faafb7f6d4b6129e"
+  ami_id: "ami-02b2d3e3c1c08c203"
   instance_type: "t2.medium"
   key_pair: "steven"
   iam_role: "S3FullAccess"
