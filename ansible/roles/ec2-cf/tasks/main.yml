@@ -29,7 +29,7 @@
       "nbn:focalPoint:systemTeamName": "{{ ec2.tags.nbn_focalPoint_systemTeamName }}"
       "nbn:operationalMode": "{{ ec2.tags.nbn_operationalMode }}"
       "nbn:teamCode": "{{ ec2.tags.nbn_teamCode }}"
-      "state:scheduleName": "{{ ec2.tags.scheduleName }}"
+      "state:scheduleName": "{{ ec2.tags.state_scheduleName }}"
       "nbn:ast:ownerName": "{{ ec2.tags.nbn_ast_ownerName }}"
       "nbn:ast:ownerEmail": "{{ ec2.tags.nbn_ast_ownerEmail }}"
       "nbn:ast:ownerMobile": "{{ ec2.tags.nbn_ast_ownerMobile }}"
