@@ -2,7 +2,7 @@
 - name: Create EC2 Stack using Cloudformation
   cloudformation:
     stack_name: "{{ stack_name }}"
-    state: "present"
+    state: "{{ state }}"
     region: "{{ region }}"
     disable_rollback: false
     template: "{{playbook_dir}}/roles/ec2-cf/files/ec2_template.yml"
