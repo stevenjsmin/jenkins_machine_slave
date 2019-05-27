@@ -19,4 +19,18 @@
       "nbn:env:code": "{{ ec2.tags.nbn_env_code }}"
       "nbn:env:subcode": "{{ ec2.tags.nbn_env_subcode }}"
       "nbn:focalPoint:applicationId": "{{ ec2.tags.nbn_focalPoint_applicationId }}"
+      "nbn:focalPoint:applicationName": "{{ ec2.tags.nbn_focalPoint_applicationName }}"
+      "nbn:focalPoint:applicationShortName": "{{ ec2.tags.nbn_focalPoint_applicationShortName }}"
+      "nbn:focalPoint:sdgCode": "{{ ec2.tags.nbn_focalPoint_sdgCode }}"
+      "nbn:focalPoint:sdgPlatformCode": "{{ ec2.tags.nbn_focalPoint_sdgPlatformCode }}"
+      "nbn:focalPoint:sdgPlatformName": "{{ ec2.tags.nbn_focalPoint_sdgPlatformName }}"
+      "nbn:focalPoint:systemTeamEmail": "{{ ec2.tags.nbn_focalPoint_systemTeamEmail }}"
+      "nbn:focalPoint:systemTeamLead": "{{ ec2.tags.nbn_focalPoint_systemTeamLead }}"
+      "nbn:focalPoint:systemTeamName": "{{ ec2.tags.nbn_focalPoint_systemTeamName }}"
+      "nbn:operationalMode": "{{ ec2.tags.nbn_operationalMode }}"
+      "nbn:teamCode": "{{ ec2.tags.nbn:teamCode }}"
+      "state:scheduleName": "{{ ec2.tags.scheduleName }}"
+      "nbn:ast:ownerName": "{{ ec2.tags.nbn_ast_ownerName }}",
+      "nbn:ast:ownerEmail": "{{ ec2.tags.nbn_ast_ownerEmail }}",
+      "nbn:ast:ownerMobile": "{{ ec2.tags.nbn_ast_ownerMobile }}"
   register: stack
